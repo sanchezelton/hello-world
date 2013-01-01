@@ -1,0 +1,6 @@
+Hello-Zend
+==========
+
+./HelloZend  	- a basic web application using the Zend PHP MVC framework
+				(TBD)
+
