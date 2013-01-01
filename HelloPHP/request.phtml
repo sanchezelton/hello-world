@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<!-- file: request.phtml -->
+
+<!-- This PHP powered HTML doc returns the path to the page requested -->
+<!-- If this is in Apache's docroot on your localhost, if your browser -->
+<!-- address requests "http://localhost/request.phtml, the dynamic output -->
+<!-- should read "/request.phtml" (w/o quotes, of course) -->
+
+<html lang="en">
+	<head>
+	</head>
+	<body>
+		<p>
+		<?php echo "The requested URL locally was: " .  $_SERVER['REQUEST_URI'];
+		?>
+		</p>
+	</body>
+</html>

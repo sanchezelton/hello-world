@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+
+<project name="HelloServlet" default="dist" basedir=".">
+	<property name="src.dir"   value="src"/>	<!-- java source files -->
+	<property name="build.dir" value="build"/>  <!-- build directory for WAR -->
+	<property name="dist.dir"  value="dist"/>   <!-- where WAR is created -->
+	<property name="lib.dir"   value="lib"/>	<!-- dependent non-Tomcat libraries -->
+	<property name="web.dir"   value="web"/>	<!-- static web artifacts -->
+	
+	<property file="build.properties"/>
+	
+	<!-- Tomcat dir properties -->
+	<property name="tomcat.lib.dir" value="${tomcat.dir}/lib"/>
+	
+	
+	<target name="build" description="Build source to bytecodes"> 
+		<!-- create internal WAR layout -->
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.dir}/WEB-INF"/>
+		<mkdir dir="${build.dir}/WEB-INF/classes"/>
+		<mkdir dir="${build.dir}/WEB-INF/lib"/>
+		
+		<!-- copy libraries not present in Tomcat lib -->
+		<copy todir="${build.dir}/WEB-INF/lib">
+			<fileset dir="${lib.dir}"/>
+		</copy>
+		
+		<!-- compile servlets -->
+		<javac srcdir="${src.dir}"
+		       destdir="${build.dir}/WEB-INF/classes"
+		       includeAntRuntime="false">
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="**/*.jar"/>
+				</fileset>
+				<fileset dir="${tomcat.lib.dir}">
+					<include name="**/*.jar"/>
+				</fileset>
+			</classpath>
+		</javac>
+		
+		<!-- copy webapp descriptor -->
+		<copy todir="${build.dir}" file="web.xml"/>
+		
+		<!-- copy static files (HTML, CSS, scripts) -->
+		<copy todir="${build.dir}">
+			<fileset dir="${web.dir}"/>
+		</copy>
+	</target>
+	
+	<target name="dist" description="Build distributable WARs" depends="build">		
+		<mkdir dir="${dist.dir}"/>
+		<delete file="${dist.dir}/${ant.project.name}.war"/> 
+		
+		<war destfile="${dist.dir}/${ant.project.name}.war" 
+		     basedir="${build.dir}"
+		     webxml="web.xml">
+		     <classes dir="${build.dir}/WEB-INF/classes"/>
+		     <lib dir="${lib.dir}"/>
+  		</war>
+	</target>
+	
+	<target name="deploy" description="builds WAR and deploys to Tomcat" depends="dist">
+		<copy todir="${tomcat.dir}/webapps" file="${dist.dir}/${ant.project.name}.war"/>
+	</target>
+	
+	<target name="clean" description="Remove build artifacts">
+		<delete dir="${build.dir}"/>
+	</target>
+	
+	<target name="clean-all" description="Restore project to initial state" depends="clean">
+		<delete dir="${dist.dir}"/>
+	</target>
+</project>
