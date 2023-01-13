@@ -6,8 +6,12 @@ const port = 3000;
 
 console.log("Starting up!");
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.send("Hello World!");
+});
+
+app.get("/todos", (_req, res) => {
+  res.send("Get todos!");
 });
 
 app.listen(port, () => {
