@@ -1,5 +1,7 @@
 
-# Build a RESTful micro-service APi using NodeJS + TS + ExpressJS + Prisma
+# References
+
+Based on article [Build a RESTful micro-service APi using NodeJS + TS + ExpressJS + Prisma](https://github.com/qedrix/node-api-demo) 
 
 ## User Stories Addressed for API microservice
 
