@@ -1,7 +1,8 @@
 
 # Description
 
-This is a microservice built on .NET Core 7.0, based on [.NET Tutorial - Your First Microservice](https://dotnet.microsoft.com/en-us/learn/aspnet/microservice-tutorial/intro)
+This is a microservice built on .NET Core 7.0, based on [.NET Tutorial - Your First Microservice](https://dotnet.microsoft.com/en-us/learn/aspnet/microservice-tutorial/intro). In addition, to the randomized non-DB backed WeatherForecast microservice, this aims to provide a user API for registration,
+activation, login, user preferences, user details, account deletion, and password reset.
 
 # User stories
 
