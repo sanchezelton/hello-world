@@ -8,6 +8,11 @@ class UserService {
 
     static prisma = new PrismaClient();
 
+    /**
+     * Creates a user
+     * @param {UserDTO} input 
+     * @returns 
+     */
     createUser = async (input: UserDTO) =>  {
 
         const salt = await bcrypt.genSalt(10);
@@ -25,6 +30,11 @@ class UserService {
         });
     }
 
+    /**
+     * Fetches a single user using the given email. 
+     * @param {string} email 
+     * @returns 
+     */
     findByEmail = async (email: string) => {
         return await UserService.prisma.user.findUnique({
             where: {
