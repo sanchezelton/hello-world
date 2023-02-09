@@ -1,5 +1,5 @@
 # Lesson 8:
-# Loops (https://www.learnpython.org/en/Conditions)
+# Loops (https://www.learnpython.org/en/Loops)
 # based on lessons available at www.learnpython.org
 
 # for loops can iterate over a given sequence, like lists

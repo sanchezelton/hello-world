@@ -1,5 +1,5 @@
 # Lesson 9:
-# Functions (https://www.learnpython.org/en/Conditions)
+# Functions (https://www.learnpython.org/en/Functions)
 # based on lessons available at www.learnpython.org
 
 # in python a block is defined in the following format
