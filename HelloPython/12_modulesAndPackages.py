@@ -77,9 +77,9 @@ print("Execise")
 # In this exercise, print an alphabetically sorted list of all the functions in the re module containing the word find.
 
 import re
-resultList = []
+find_members = []
 for fn in dir(re):
-    if fn.count("find") == 0:
-        resultList.append(fn)
-resultList.sort()
-print(resultList)
+    if fn.count("find") > 0:
+        find_members.append(fn)
+find_members.sort()
+print(find_members)
