@@ -71,3 +71,15 @@ print()
 # we can also lookup information about a function (scroll up/down/left/right w/ arrow keys, Q to quit), note this doesn't return a string but a textual modal (press q in the terminal to quit)
 help(urllib.request.urlopen)
 
+print()
+print("Execise")
+
+# In this exercise, print an alphabetically sorted list of all the functions in the re module containing the word find.
+
+import re
+resultList = []
+for fn in dir(re):
+    if fn.count("find") == 0:
+        resultList.append(fn)
+resultList.sort()
+print(resultList)
