@@ -17,4 +17,4 @@ class Screen:
 
 # the code in the module is executed only once, the first time it is imported (so in this case, main_screen is a singleton)
 main_screen = Screen()
-print("Screen initialized")     # this should only appear once
+print("mygame/draw.py: Screen initialized")     # this should only appear once
