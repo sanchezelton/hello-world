@@ -1,11 +1,16 @@
 # game.py - mock for a game module
-# import the draw module into the current namespace
-import draw
+# import the draw module's functions into the current namespace
+
+# this is an _implicit_ _relative_ _import_ and is NO LONGER ALLOWED in python3, but was under python2.x
+# import draw
+
+# so for python3, we must use the from-implicit form of import to refer to this module
+from . import draw
 
 # alternative means to import a specific function within a module into the current namespace
 # from draw import draw_game
 
-# 2nd alternative, import all functions within a module into the current namespace
+# 2nd alternative, import all functions, classes, or variables within a module into the current namespace
 # from draw import *
 
 # 3rd alternative, import a specific function within a module into the current namespace, under a different name.
